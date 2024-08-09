@@ -5,7 +5,7 @@
 
 ## lazuardy.tech
 
-This is a repository for the landing page of Lazuardy. Built using [Next](https://nextjs.org) and [TypeScript](https://typescriptlang.org).
+This is a repository for the landing page of Lazuardy. Built using [Next](https://nextjs.org).
 
 > #### Disclaimer
 >
