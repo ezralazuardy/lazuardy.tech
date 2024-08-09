@@ -5,8 +5,7 @@ const state = {
   mouse: [0, 0],
   content: [
     {
-      tag: "",
-      text: `We are a team full of\ntalented engineers.`,
+      text: `We are a team full of talented engineers.`,
       images: [
         "/images/BH41NVu.jpg",
         "/images/fBoIJLX.jpg",
@@ -14,8 +13,7 @@ const state = {
       ],
     },
     {
-      tag: "",
-      text: `That empower companies\npursue their success,`,
+      text: `That empower companies pursue their success,`,
       images: [
         "/images/c4cA8UN.jpg",
         "/images/ajQ73ol.jpg",
@@ -23,8 +21,7 @@ const state = {
       ],
     },
     {
-      tag: "",
-      text: `through technologies,\nand the power of internet.`,
+      text: `through technologies and the power of internet.`,
       images: [
         "/images/mbFIW1b.jpg",
         "/images/mlDUVig.jpg",
@@ -37,13 +34,14 @@ const state = {
       depth: 0,
       color: "#cccccc",
       textColor: "#ffffff",
-      text: "Seeking digital help?\nWe're here to help you\nbuild a software that\noutstands others.",
+      // text: "With us, built a software that outstands others.",
+      text: "1 Patent, an International Research Publication, a bookful of articles, and bunch of portfolios. Yeah we know our stuff.",
       image: "/images/cAKwexj.jpg",
     },
     {
-      depth: -5,
+      depth: -4,
       textColor: "#272727",
-      text: "Artifical Intelligence, Big Data, Cloud, Network, Frontend, Backend, Cybersecurity, Web 3,\nor others? Mention it, We'll do it.",
+      text: "Artifical Intelligence, Big Data, Cloud, Network, Frontend, Backend, Cybersecurity, Web 3, Database, or others? Mention it, We'll do it.",
       image: "/images/04zTfWB.jpg",
     },
   ],
@@ -51,7 +49,7 @@ const state = {
     {
       points: [
         [-20, 0, 0],
-        [-9, 0, 0],
+        [-12, 0, 0],
       ],
       color: "black",
       lineWidth: 0.5,
@@ -59,7 +57,7 @@ const state = {
     {
       points: [
         [20, 0, 0],
-        [9, 0, 0],
+        [12, 0, 0],
       ],
       color: "black",
       lineWidth: 0.5,

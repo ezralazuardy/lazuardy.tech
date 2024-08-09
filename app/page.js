@@ -22,7 +22,7 @@ function HeightReporter({ onReflow }) {
   return null;
 }
 
-function Page({ text, tag, images, textScaleFactor, onReflow, left = false }) {
+function Page({ text, images, textScaleFactor, onReflow, left = false }) {
   const textures = useLoader(THREE.TextureLoader, images);
   const { viewport } = useThree();
   const boxProps = {
@@ -67,18 +67,6 @@ function Page({ text, tag, images, textScaleFactor, onReflow, left = false }) {
             )}
           </Box>
         ))}
-      </Box>
-      <Box marginLeft={1.5} marginRight={1.5} marginTop={2}>
-        <Text
-          position={[left ? 1 : -1, 0.5, 1]}
-          fontSize={textScaleFactor}
-          lineHeight={1}
-          letterSpacing={-0.05}
-          maxWidth={(viewport.width / 4) * 3}
-        >
-          {tag}
-          <meshBasicMaterial color="#cccccc" toneMapped={false} />
-        </Text>
       </Box>
       <Box
         marginLeft={left ? 1.5 : 1}
@@ -263,11 +251,10 @@ export default function Home() {
   const navBar = useRef();
   const onScroll = (e) => {
     state.top = e.target.scrollTop;
-    console.log(e.target.scrollTop);
     if (e.target.scrollTop < 800 || e.target.scrollTop > 6200) {
       navBar.current.style.top = "0px";
     } else {
-      navBar.current.style.top = "-100px";
+      navBar.current.style.top = "-120px";
     }
   };
   useEffect(() => void onScroll({ target: scrollArea.current }), []);
@@ -319,7 +306,7 @@ export default function Home() {
       </div>
       <div
         ref={navBar}
-        className="transition-all duration-500 absolute top-0 left-0 w-full bg-transparent backdrop-filter backdrop-blur bg-opacity-30 border-b-2 border-gray-300 text-black py-6 px-12 grid grid-cols-4 gap-4"
+        className="navbar transition-all duration-1000 absolute left-0 w-full bg-transparent backdrop-filter backdrop-blur bg-opacity-30 text-black py-8 px-12 grid grid-cols-4 gap-4"
       >
         <div className="w-full text-start text-xl font-semibold font-mono col-span-3">
           <span>lazuardy;</span>
