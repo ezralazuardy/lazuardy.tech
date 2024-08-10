@@ -10,19 +10,11 @@ const state = {
     },
     {
       text: `That empower companies pursue their success,`,
-      images: [
-        "/images/c4cA8UN.jpg",
-        "/images/ajQ73ol.jpg",
-        "/images/gZOmLNU.jpg",
-      ],
+      images: ["/images/4.jpg", "/images/5.jpg", "/images/6.jpg"],
     },
     {
       text: `through technologies and the power of internet.`,
-      images: [
-        "/images/mbFIW1b.jpg",
-        "/images/mlDUVig.jpg",
-        "/images/gwuZrgo.jpg",
-      ],
+      images: ["/images/7.jpg", "/images/8.jpg", "/images/9.jpg"],
     },
   ],
   depthbox: [
