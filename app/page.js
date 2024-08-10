@@ -15,6 +15,23 @@ import { Loader, Line, useAspect } from "@react-three/drei";
 import Effect from "@/components/effect";
 import Text from "@/components/text";
 import state from "@/components/state";
+import Link from "next/link";
+import Meteors from "@/components/magicui/meteors";
+import Marquee from "@/components/magicui/marquee";
+
+const footerMarquees = [
+  "Artificial Intelligence",
+  "Machine Learning",
+  "Big Data",
+  "Algorithm",
+  "Frontend",
+  "Backend",
+  "Web 3",
+  "Cloud",
+  "Network",
+  "Cybersecurity",
+  "DevOps",
+];
 
 function HeightReporter({ onReflow }) {
   const size = useFlexSize();
@@ -248,13 +265,21 @@ function Content({ onReflow }) {
 
 export default function Home() {
   const scrollArea = useRef();
-  const navBar = useRef();
+  const header = useRef();
+  const footer = useRef();
+  const scheduleForm = useRef();
   const onScroll = (e) => {
     state.top = e.target.scrollTop;
-    if (e.target.scrollTop < 800 || e.target.scrollTop > 6200) {
-      navBar.current.style.top = "0px";
+    if (e.target.scrollTop < 600) {
+      header.current.style.top = "0px";
+    } else if (e.target.scrollTop > 6000) {
+      // header.current.style.top = "0px";
+      footer.current.style.bottom = "0px";
+      scheduleForm.current.style.opacity = "1";
     } else {
-      navBar.current.style.top = "-120px";
+      header.current.style.top = "-1000px";
+      footer.current.style.bottom = "-1000px";
+      scheduleForm.current.style.opacity = "0";
     }
   };
   useEffect(() => void onScroll({ target: scrollArea.current }), []);
@@ -305,19 +330,100 @@ export default function Home() {
         <div style={{ height: `${pages * 100}vh` }} />
       </div>
       <div
-        ref={navBar}
-        className="navbar transition-all duration-1000 absolute left-0 w-full bg-transparent backdrop-filter backdrop-blur bg-opacity-30 text-black py-8 px-12 grid grid-cols-4 gap-4"
+        ref={header}
+        className="header transition-all duration-1000 absolute left-0 w-full bg-transparent backdrop-filter backdrop-blur bg-opacity-30 text-black py-8 px-14 grid grid-cols-2 gap-4"
       >
-        <div className="w-full text-start text-xl font-semibold font-mono col-span-3">
+        <div className="w-full text-start text-xl font-semibold font-mono">
           <span>lazuardy;</span>
         </div>
-        <div className="w-full text-center text-lg font-medium font-sans grid grid-cols-4 gap-2">
-          <span className="underline">home</span>
-          <span>work</span>
-          <span>team</span>
-          <span>contact</span>
+        <div className="w-full text-end justify-end text-lg font-light font-sans flex">
+          <span className="text-end underline me-6">home</span>
+          <span className="text-end no-underline me-6">work</span>
+          <span className="text-end no-underline me-6">team</span>
+          <span className="text-end no-underline me-6">contact</span>
+          <span className="text-end no-underline">
+            <Link href="https://ezralazuardy.medium.com" target="_blank">
+              articles
+            </Link>
+          </span>
         </div>
       </div>
+      <div
+        ref={footer}
+        className="footer transition-all duration-1000 absolute left-0 w-full bg-black text-white pt-8"
+      >
+        <div className="relative w-full h-full">
+          <Meteors number={30} />
+        </div>
+        <div className="w-full px-14 text-start text-white text-xl mb-20 font-semibold font-mono mt-40">
+          <span>lazuardy;</span>
+        </div>
+        <div className="w-full px-14 text-start text-white text-4xl mb-10 font-medium uppercase tracking-wide leading-snug">
+          <span>
+            Ready to build software <br /> that outstands others?
+          </span>
+        </div>
+        <div className="w-full px-14 grid grid-cols-8 gap-12 mb-40">
+          <div className="w-full text-start col-span-3">
+            <div className="text-gray-300 text-md mb-10 font-light">
+              <span>
+                Feel free to reach out if you want to collaborate with us, or
+                simply have a chat.
+              </span>
+            </div>
+            <div className="text-white text-xl font-light">
+              <Link href="mailto:contact@lazuardy.tech">
+                contact@lazuardy.tech
+              </Link>
+            </div>
+          </div>
+          <div className="w-full text-start col-span-1"></div>
+          <div className="w-full text-start col-span-2">
+            <div className="text-white text-md mb-4 font-medium uppercase">
+              <span>Partnership</span>
+            </div>
+            <div className="text-gray-300 text-md font-light">
+              Get more profit based on the project value that you can give to
+              us, just send an email if you&apos;re interested.
+            </div>
+          </div>
+          <div className="w-full text-start col-span-1">
+            <div className="text-white text-md mb-4 font-medium uppercase">
+              <span>Follow us</span>
+            </div>
+            <div className="text-gray-300 text-md font-light mb-2">
+              Instagram
+            </div>
+            <div className="text-gray-300 text-md font-light mb-2">
+              LinkedIn
+            </div>
+            <div className="text-gray-300 text-md font-light mb-2">Medium</div>
+          </div>
+          <div className="w-full text-start col-span-1 text-white text-md font-light">
+            <div className="underline mb-2">home</div>
+            <div className="text-gray-300 no-underline mb-2">work</div>
+            <div className="text-gray-300 no-underline mb-2">team</div>
+            <div className="text-gray-300 no-underline mb-2">contact</div>
+            <div className="text-gray-300 no-underline mb-2">articles</div>
+          </div>
+        </div>
+        <div className="w-full">
+          <Marquee pauseOnHover className="[--duration:20s]">
+            {footerMarquees.map((text, index) => (
+              <span
+                key={index}
+                className="text-white text-lg font-mono me-8 my-4 uppercase"
+              >
+                {text}
+              </span>
+            ))}
+          </Marquee>
+        </div>
+      </div>
+      <div
+        ref={scheduleForm}
+        className="schedule-form hidden transition-all duration-1000 absolute inset-0 opacity-0 w-full bg-transparent text-white py-2"
+      ></div>
       <Loader />
     </>
   );

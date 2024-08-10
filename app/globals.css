@@ -80,6 +80,10 @@ body {
     font-size: 0.6em;
 }
 
-.navbar {
-    top: -120px;
+.header {
+    top: -1000px;
+}
+
+.footer {
+    bottom: -1000px;
 }
