@@ -31,6 +31,7 @@ const footerMarquees = [
   "Network",
   "Cybersecurity",
   "DevOps",
+  "Internet of Things",
 ];
 
 function HeightReporter({ onReflow }) {
