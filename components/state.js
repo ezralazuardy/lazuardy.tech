@@ -5,7 +5,7 @@ const state = {
   mouse: [0, 0],
   content: [
     {
-      text: `We are a team full of talented engineers.`,
+      text: `We are a team full\nof talented engineers.`,
       images: ["/images/3.jpg", "/images/1.jpg", "/images/2.jpg"],
     },
     {
@@ -22,14 +22,14 @@ const state = {
       depth: 0,
       color: "#cccccc",
       textColor: "#ffffff",
-      text: "We own 1 patent, an international research publication, a bookful of articles, and bunch of portfolios. Of course we know our stuff.",
-      image: "/images/cAKwexj.jpg",
+      text: "One patent, an international research publication, a bookful of articles, and bunch of portfolios. Yeah, we know our stuff.",
+      image: "/images/cover.jpg",
     },
     {
       depth: -4,
       textColor: "#272727",
-      text: "Artifical Intelligence, Big Data, Cloud, Network, Frontend, Backend, Cybersecurity, Web 3, Database, or others? Mention it, We'll do it.",
-      image: "/images/04zTfWB.jpg",
+      text: "Artifical Intelligence, Big Data, Cloud, Network, Frontend, Backend, Cybersecurity, Web 3, Database, or others? Mention it, we'll do it.",
+      image: "/images/cover.jpg",
     },
   ],
   lines: [

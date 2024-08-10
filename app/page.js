@@ -332,7 +332,7 @@ export default function Home() {
       </div>
       <div
         ref={header}
-        className="header transition-all duration-1000 absolute left-0 w-full bg-transparent backdrop-filter backdrop-blur bg-opacity-30 text-black py-8 px-14 grid grid-cols-2 gap-4"
+        className="header transition-all duration-1000 absolute left-0 w-full bg-white/30 backdrop-filter backdrop-blur bg-opacity-30 text-black py-8 px-14 grid grid-cols-2 gap-4"
       >
         <div className="w-full text-start text-xl font-semibold font-mono">
           <span>lazuardy;</span>
