@@ -337,7 +337,7 @@ export default function Home() {
           <span>lazuardy;</span>
         </div>
         <div className="w-full text-end justify-end text-lg font-light font-sans flex">
-          <span className="text-end underline me-6">home</span>
+          <span className="text-end no-underline font-bold me-6">home</span>
           <span className="text-end no-underline me-6">work</span>
           <span className="text-end no-underline me-6">team</span>
           <span className="text-end no-underline me-6">contact</span>
@@ -400,7 +400,7 @@ export default function Home() {
             <div className="text-gray-300 text-md font-light mb-2">Medium</div>
           </div>
           <div className="w-full text-start col-span-1 text-white text-md font-light">
-            <div className="underline mb-2">home</div>
+            <div className="text-white no-underline font-bold mb-2">home</div>
             <div className="text-gray-300 no-underline mb-2">work</div>
             <div className="text-gray-300 no-underline mb-2">team</div>
             <div className="text-gray-300 no-underline mb-2">contact</div>

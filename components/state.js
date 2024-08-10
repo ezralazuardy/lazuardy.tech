@@ -6,11 +6,7 @@ const state = {
   content: [
     {
       text: `We are a team full of talented engineers.`,
-      images: [
-        "/images/BH41NVu.jpg",
-        "/images/fBoIJLX.jpg",
-        "/images/04zTfWB.jpg",
-      ],
+      images: ["/images/3.jpg", "/images/1.jpg", "/images/2.jpg"],
     },
     {
       text: `That empower companies pursue their success,`,
