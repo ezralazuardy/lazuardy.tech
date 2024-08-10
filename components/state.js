@@ -30,7 +30,7 @@ const state = {
       depth: 0,
       color: "#cccccc",
       textColor: "#ffffff",
-      text: "We own 1 patent, an international research publication, a bookful of articles, and bunch of portfolios. Yeah we know our stuff.",
+      text: "We own 1 patent, an international research publication, a bookful of articles, and bunch of portfolios. Of course we know our stuff.",
       image: "/images/cAKwexj.jpg",
     },
     {
