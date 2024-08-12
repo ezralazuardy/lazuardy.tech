@@ -35,13 +35,13 @@ export default function Page() {
         setTimeout(() => {
           loader.current.style.display = "none";
         }, 1000);
-      }, 2000);
+      }, 4000);
     }
 
     // show/hide header and footer
     if (scrollPercent <= 4) {
       header.current.style.top = "0px";
-    } else if (scrollPercent >= 74) {
+    } else if (scrollPercent >= 76) {
       footer.current.style.bottom = "0px";
     } else {
       header.current.style.top = "-500px";
