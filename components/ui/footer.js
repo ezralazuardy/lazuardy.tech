@@ -24,7 +24,7 @@ export default forwardRef(function Footer(props, ref) {
   return (
     <div
       ref={ref}
-      className={`${className} footer transition-all duration-500 absolute left-0 w-full bg-black text-white pt-8 ease-in-out`}
+      className={`${className} footer transition-all duration-1000 absolute left-0 w-full bg-black text-white pt-8 ease-in-out`}
     >
       <div className="relative w-full h-full">
         <Meteors number={30} />
