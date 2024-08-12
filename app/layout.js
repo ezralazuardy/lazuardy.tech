@@ -1,17 +1,23 @@
-import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import Inter from "@/lib/fonts/inter";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Lazuardy",
-  description: "We make good sh*ts!",
+  description: "We are a team full of talented engineers.",
+};
+
+export const viewport = {
+  themeColor: [{ color: "#000000" }],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={Inter.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
