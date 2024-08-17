@@ -20,21 +20,6 @@ body,
     background-color: black;
 }
 
-.scrollArea {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.scrollArea::-webkit-scrollbar {
-    display: none;
-}
-
 .loading {
     position: absolute;
     top: 0px;
@@ -45,7 +30,7 @@ body,
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 5;
 }
 
 .loading-bar-container {
@@ -69,14 +54,31 @@ body,
 }
 
 .header {
-    top: -1000px;
+    top: -500px;
+    z-index: 3;
 }
 
 .footer {
-    bottom: -1000px;
+    z-index: 4;
 }
 
 .loader {
     background-color: #000000;
-    z-index: 100;
+    z-index: 5;
+}
+
+.scrollArea {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scrollArea::-webkit-scrollbar {
+    display: none;
 }

@@ -257,10 +257,9 @@ export default forwardRef(function Canvas(props, ref) {
   return (
     <>
       <FiberCanvas
-        shadows
         dpr={[1, 2]}
         raycaster={{ enabled: false }}
-        camera={{ position: [0, 0, 10], far: 1000 }}
+        camera={{ position: [0, 0, 10], far: 2000 }}
         onCreated={({ gl }) => gl.setClearColor("#000000")}
         gl={{
           powerPreference: "low-power",
@@ -276,7 +275,7 @@ export default forwardRef(function Canvas(props, ref) {
         <Effect />
       </FiberCanvas>
       <div
-        className="scrollArea"
+        className="scrollArea pointer-events-auto"
         ref={ref}
         onScroll={onScroll}
         onPointerMove={(e) =>
