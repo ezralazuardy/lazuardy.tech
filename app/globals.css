@@ -55,16 +55,21 @@ body,
 
 .header {
     top: -500px;
-    z-index: 3;
+    z-index: 1;
 }
 
 .footer {
-    z-index: 4;
+    z-index: 1;
 }
 
 .loader {
     background-color: #000000;
     z-index: 5;
+}
+
+.maintenance {
+    background-color: #000000;
+    z-index: 1;
 }
 
 .scrollArea {

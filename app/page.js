@@ -4,6 +4,7 @@ import Header from "@/components/ui/header";
 import Canvas from "@/components/ui/canvas";
 import Footer from "@/components/ui/footer";
 import Loader from "@/components/ui/loader";
+import Maintenance from "@/components/ui/maintenance";
 import React, { useEffect, useState, useRef } from "react";
 import state from "@/lib/state";
 
@@ -11,10 +12,10 @@ const loaderDelay = 4000; // in ms;
 
 export default function Page() {
   const scroll = useRef();
-  const canvas = useRef();
   const header = useRef();
   const footer = useRef();
   const loader = useRef();
+  const maintenance = useRef();
   const [loaded, setLoaded] = useState(false);
 
   const calculateScrollProgress = (scrollTarget) => {
@@ -32,9 +33,9 @@ export default function Page() {
 
     // make sure component is loaded
     if (
-      // !header.current ||
-      // !footer.current ||
-      // !loader.current ||
+      !header.current ||
+      !footer.current ||
+      !loader.current ||
       !scrollTarget
     ) {
       return;
@@ -79,18 +80,19 @@ export default function Page() {
 
   useEffect(() => onScroll({ target: scroll.current }));
 
-  // return (
-  //   <>
-  //     <Footer ref={footer} />
-  //   </>
-  // );
+  if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE) {
+    return (
+      <>
+        <Maintenance ref={maintenance} />
+      </>
+    );
+  }
 
   return (
     <>
       <Canvas ref={scroll} onScroll={onScroll} />
       <Header ref={header} />
       <Footer ref={footer} />
-      <Loader ref={loader} />
     </>
   );
 }
