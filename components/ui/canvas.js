@@ -135,6 +135,7 @@ function Layercard({
         bold
         position={[boxWidth / 2, -boxHeight / 2, depth + 1.5]}
         maxWidth={(viewport.width / 4) * 1}
+        textAlign="center"
         anchorX="center"
         anchorY="middle"
         fontSize={0.6 * textScaleFactor}

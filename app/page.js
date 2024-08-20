@@ -6,6 +6,7 @@ import Footer from "@/components/ui/footer";
 import Loader from "@/components/ui/loader";
 import Maintenance from "@/components/ui/maintenance";
 import React, { useEffect, useState, useRef } from "react";
+import { isMaintenanceMode } from "@/lib/config";
 import state from "@/lib/state";
 
 const loaderDelay = 4000; // in ms;
@@ -80,7 +81,7 @@ export default function Page() {
 
   useEffect(() => onScroll({ target: scroll.current }));
 
-  if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE) {
+  if (isMaintenanceMode()) {
     return (
       <>
         <Maintenance ref={maintenance} />
@@ -93,6 +94,7 @@ export default function Page() {
       <Canvas ref={scroll} onScroll={onScroll} />
       <Header ref={header} />
       <Footer ref={footer} />
+      <Loader ref={loader} />
     </>
   );
 }
