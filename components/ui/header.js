@@ -3,7 +3,7 @@ import Logo from "@/components/ui/logo";
 import { forwardRef } from "react";
 
 export default forwardRef(function Header(props, ref) {
-  const { className } = props;
+  const { className, scrollToTop } = props;
   return (
     <div
       ref={ref}
@@ -11,20 +11,17 @@ export default forwardRef(function Header(props, ref) {
     >
       <Logo className="w-full text-start text-2xl" />
       <div className="w-full text-end justify-end text-lg font-light font-sans flex">
-        <span className="text-end font-bold">
+        <span
+          className="text-end font-bold hover:underline"
+          onClick={scrollToTop}
+        >
           <Link href="/">home</Link>
         </span>
-        <span className="text-end ms-6">
-          <Link href="/work">work</Link>
-        </span>
-        <span className="text-end ms-6">
-          <Link href="/team">team</Link>
-        </span>
-        <span className="text-end ms-6">
+        <span className="text-end ms-6 hover:underline">
           <Link href="/contact">contact</Link>
         </span>
-        <span className="text-end ms-6">
-          <Link href="https://ezralazuardy.medium.com" target="_blank">
+        <span className="text-end ms-6 hover:underline">
+          <Link href="https://blog.lazuardy.tech" target="_blank">
             articles
           </Link>
         </span>

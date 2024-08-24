@@ -2,6 +2,7 @@ import Link from "next/link";
 import Meteors from "@/components/magicui/meteors";
 import Marquee from "@/components/magicui/marquee";
 import Logo from "@/components/ui/logo";
+import { ArrowRight } from "lucide-react";
 import { forwardRef } from "react";
 
 const marqueeTexts = [
@@ -45,10 +46,11 @@ export default forwardRef(function Footer(props, ref) {
                   simply have a chat.
                 </span>
               </div>
-              <div className="text-white text-xl font-light">
+              <div className="text-white text-xl font-light flex gap-3">
                 <Link href="mailto:contact@lazuardy.tech">
                   contact@lazuardy.tech
                 </Link>
+                <ArrowRight className="w-6 h-6 mt-1" />
               </div>
             </div>
             <div className="w-full text-start col-span-1"></div>
@@ -65,22 +67,40 @@ export default forwardRef(function Footer(props, ref) {
               <div className="text-white text-md mb-4 font-medium uppercase">
                 <span>Follow us</span>
               </div>
-              <div className="text-gray-300 text-md font-light mb-2">
-                Instagram
+              <div className="text-gray-300 text-md font-light mb-2 hover:underline">
+                <Link
+                  href="https://instagram.com/lazuardy.tech"
+                  target="_blank"
+                >
+                  Instagram
+                </Link>
               </div>
-              <div className="text-gray-300 text-md font-light mb-2">
-                LinkedIn
+              <div className="text-gray-300 text-md font-light mb-2 hover:underline">
+                <Link
+                  href="https://linkedin.com/company/lazuardy/?viewAsMember=true"
+                  target="_blank"
+                >
+                  LinkedIn
+                </Link>
               </div>
-              <div className="text-gray-300 text-md font-light mb-2">
-                Medium
+              <div className="text-gray-300 text-md font-light mb-2 hover:underline">
+                <Link href="https://blog.lazuardy.tech" target="_blank">
+                  Medium
+                </Link>
               </div>
             </div>
             <div className="w-full text-start col-span-1 text-white text-md font-light">
-              <div className="text-white font-bold mb-2">home</div>
-              <div className="text-gray-300 mb-2">work</div>
-              <div className="text-gray-300 mb-2">team</div>
-              <div className="text-gray-300 mb-2">contact</div>
-              <div className="text-gray-300 mb-2">articles</div>
+              <div className="text-white font-bold mb-2 hover:underline">
+                <Link href="/">home</Link>
+              </div>
+              <div className="text-gray-300 mb-2 hover:underline">
+                <Link href="/contact">contact</Link>
+              </div>
+              <div className="text-gray-300 mb-2 hover:underline">
+                <Link href="https://blog.lazuardy.tech" target="_blank">
+                  article
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { isMaintenanceMode } from "@/lib/config";
 import state from "@/lib/state";
 
-const loaderDelay = 4000; // in ms;
+const loaderDelay = 5000; // in ms;
 
 export default function Page() {
   const scroll = useRef();
@@ -79,6 +79,17 @@ export default function Page() {
     }
   };
 
+  const scrollToTop = () => {
+    scroll.current.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToBottom = () => {
+    scroll.current.scrollTo({
+      top: scroll.current.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => onScroll({ target: scroll.current }));
 
   if (isMaintenanceMode()) {
@@ -92,7 +103,11 @@ export default function Page() {
   return (
     <>
       <Canvas ref={scroll} onScroll={onScroll} />
-      <Header ref={header} />
+      <Header
+        ref={header}
+        scrollToTop={scrollToTop}
+        scrollToBottom={scrollToBottom}
+      />
       <Footer ref={footer} />
       <Loader ref={loader} />
     </>
