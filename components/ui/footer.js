@@ -96,7 +96,7 @@ export default forwardRef(function Footer(props, ref) {
             </div>
             <div className="w-full text-start col-span-1 text-white text-md font-light">
               <div
-                className="text-white font-bold mb-2 hover:underline hover:cursor-pointer"
+                className="text-gray-300 mb-2 hover:underline hover:cursor-pointer"
                 onClick={redirectHome}
               >
                 home
