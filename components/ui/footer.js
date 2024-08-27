@@ -4,6 +4,7 @@ import Marquee from "@/components/magicui/marquee";
 import Logo from "@/components/ui/logo";
 import { ArrowRight } from "lucide-react";
 import { forwardRef } from "react";
+import { performRedirectContact, performRedirectHome } from "@/lib/utils";
 
 const marqueeTexts = [
   "Artificial Intelligence",
@@ -16,12 +17,16 @@ const marqueeTexts = [
   "Cloud",
   "Network",
   "Cybersecurity",
+  "Design",
   "DevOps",
   "Internet of Things",
+  "UI/UX",
 ];
 
 export default forwardRef(function Footer(props, ref) {
-  const { className } = props;
+  const { className, loader } = props;
+  const redirectHome = () => performRedirectHome(loader);
+  const redirectContact = () => performRedirectContact(loader);
   return (
     <div
       ref={ref}
@@ -90,11 +95,17 @@ export default forwardRef(function Footer(props, ref) {
               </div>
             </div>
             <div className="w-full text-start col-span-1 text-white text-md font-light">
-              <div className="text-white font-bold mb-2 hover:underline">
-                <Link href="/">home</Link>
+              <div
+                className="text-white font-bold mb-2 hover:underline hover:cursor-pointer"
+                onClick={redirectHome}
+              >
+                home
               </div>
-              <div className="text-gray-300 mb-2 hover:underline">
-                <Link href="/contact">contact</Link>
+              <div
+                className="text-gray-300 mb-2 hover:underline hover:cursor-pointer"
+                onClick={redirectContact}
+              >
+                contact
               </div>
               <div className="text-gray-300 mb-2 hover:underline">
                 <Link href="https://blog.lazuardy.tech" target="_blank">

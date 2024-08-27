@@ -7,9 +7,21 @@ import Loader from "@/components/ui/loader";
 import Maintenance from "@/components/ui/maintenance";
 import React, { useEffect, useState, useRef } from "react";
 import { isMaintenanceMode } from "@/lib/config";
+import { performHideLoader } from "@/lib/utils";
 import state from "@/lib/state";
 
 const loaderDelay = 5000; // in ms;
+
+const calculateScrollProgress = (scrollTarget) => {
+  const scrollHeight = scrollTarget.scrollHeight - scrollTarget.clientHeight;
+  const scrollPosition = scrollTarget.scrollTop;
+  const scrollPercent = (scrollPosition / scrollHeight) * 100;
+  state.top = scrollPosition;
+
+  return parseInt(isNaN(scrollPercent) ? 0 : scrollPercent);
+};
+
+const hideLoader = (loader) => performHideLoader(loader);
 
 export default function Page() {
   const scroll = useRef();
@@ -19,18 +31,9 @@ export default function Page() {
   const maintenance = useRef();
   const [loaded, setLoaded] = useState(false);
 
-  const calculateScrollProgress = (scrollTarget) => {
-    const scrollHeight = scrollTarget.scrollHeight - scrollTarget.clientHeight;
-    const scrollPosition = scrollTarget.scrollTop;
-    const scrollPercent = (scrollPosition / scrollHeight) * 100;
-    state.top = scrollPosition;
-
-    return parseInt(isNaN(scrollPercent) ? 0 : scrollPercent);
-  };
-
-  const onScroll = (e) => {
+  const onScroll = () => {
     // get the scroll target
-    let scrollTarget = e.target;
+    let scrollTarget = scroll.current;
 
     // make sure component is loaded
     if (
@@ -48,11 +51,8 @@ export default function Page() {
     // check if the page is loaded
     if (!loaded) {
       setTimeout(() => {
+        hideLoader(loader);
         setLoaded(true);
-        loader.current.style.opacity = 0;
-        setTimeout(() => {
-          loader.current.style.display = "none";
-        }, 700);
       }, loaderDelay);
     }
 
@@ -79,18 +79,7 @@ export default function Page() {
     }
   };
 
-  const scrollToTop = () => {
-    scroll.current.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const scrollToBottom = () => {
-    scroll.current.scrollTo({
-      top: scroll.current.scrollHeight,
-      behavior: "smooth",
-    });
-  };
-
-  useEffect(() => onScroll({ target: scroll.current }));
+  useEffect(() => onScroll());
 
   if (isMaintenanceMode()) {
     return (
@@ -103,12 +92,8 @@ export default function Page() {
   return (
     <>
       <Canvas ref={scroll} onScroll={onScroll} />
-      <Header
-        ref={header}
-        scrollToTop={scrollToTop}
-        scrollToBottom={scrollToBottom}
-      />
-      <Footer ref={footer} />
+      <Header ref={header} loader={loader} scroll={scroll} />
+      <Footer ref={footer} loader={loader} scroll={scroll} />
       <Loader ref={loader} />
     </>
   );

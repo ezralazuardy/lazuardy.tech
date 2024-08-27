@@ -87,3 +87,10 @@ body,
 .scrollArea::-webkit-scrollbar {
     display: none;
 }
+
+.logo,
+.maintenance {
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+}
