@@ -1,10 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import Meteors from "@/components/magicui/meteors";
 import Marquee from "@/components/magicui/marquee";
 import Logo from "@/components/ui/logo";
 import { ArrowRight } from "lucide-react";
 import { forwardRef } from "react";
-import { performRedirectContact, performRedirectHome } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import {
+  performRedirectContact,
+  performRedirectWork,
+  performRedirectPartnership,
+} from "@/lib/utils";
 
 const marqueeTexts = [
   "Artificial Intelligence",
@@ -25,8 +32,10 @@ const marqueeTexts = [
 
 export default forwardRef(function Footer(props, ref) {
   const { className, loader } = props;
-  const redirectHome = () => performRedirectHome(loader);
-  const redirectContact = () => performRedirectContact(loader);
+  const router = useRouter();
+  const redirectContact = () => performRedirectContact(router, loader);
+  const redirectWork = () => performRedirectWork(router, loader);
+  const redirectPartnership = () => performRedirectPartnership(router, loader);
   return (
     <div
       ref={ref}
@@ -100,10 +109,7 @@ export default forwardRef(function Footer(props, ref) {
               </div>
             </div>
             <div className="w-full text-start col-span-1 pt-2 text-white text-md font-light">
-              <div
-                className="text-white font-medium mb-2 transition-colors hover:text-white hover:cursor-pointer"
-                onClick={redirectHome}
-              >
+              <div className="text-white font-medium mb-2 transition-colors hover:text-white hover:cursor-pointer">
                 <span className="text-white text-xs mr-2">▶</span>
                 <span>home</span>
               </div>
@@ -122,7 +128,7 @@ export default forwardRef(function Footer(props, ref) {
               </div>
               <div
                 className="text-gray-400 font-medium mb-2 transition-colors hover:text-white hover:cursor-pointer"
-                onClick={redirectContact}
+                onClick={redirectPartnership}
               >
                 <span className="text-black text-xs mr-2">▶</span>
                 <span>partnership</span>

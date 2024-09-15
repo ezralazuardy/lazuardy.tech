@@ -5,12 +5,13 @@ import Canvas from "@/components/ui/canvas";
 import Footer from "@/components/ui/footer";
 import Loader from "@/components/ui/loader";
 import Maintenance from "@/components/ui/maintenance";
+import ScrollButton from "@/components/ui/scroll-button";
 import React, { useEffect, useState, useRef } from "react";
 import { isMaintenanceMode } from "@/lib/config";
 import { performHideLoader } from "@/lib/utils";
 import state from "@/lib/state";
 
-const loaderDelay = 5000; // in ms;
+const loaderDelay = 6000; // in ms;
 
 const calculateScrollProgress = (scrollTarget) => {
   const scrollHeight = scrollTarget.scrollHeight - scrollTarget.clientHeight;
@@ -25,6 +26,7 @@ const hideLoader = (loader) => performHideLoader(loader);
 
 export default function Page() {
   const scroll = useRef();
+  const scrollButton = useRef();
   const header = useRef();
   const footer = useRef();
   const loader = useRef();
@@ -40,6 +42,7 @@ export default function Page() {
       !header.current ||
       !footer.current ||
       !loader.current ||
+      !scrollButton.current ||
       !scrollTarget
     ) {
       return;
@@ -56,7 +59,8 @@ export default function Page() {
       }, loaderDelay);
     }
 
-    if (scrollProgress >= 80) {
+    // show/hide the footer
+    if (scrollProgress >= 82) {
       footer.current.classList.remove("hidden");
       setTimeout(() => {
         footer.current.style.opacity = 100;
@@ -68,13 +72,23 @@ export default function Page() {
       }, 500);
     }
 
+    // show the header and hide the scroll button
     if (scrollProgress <= 3) {
       header.current.style.top = "0px";
+      scrollButton.current.style.opacity = 0;
+      setTimeout(() => {
+        scrollButton.current.classList.add("hidden");
+      }, 500);
       return;
     }
 
+    // hide the header and show the scroll button
     if (scrollProgress > 3) {
       header.current.style.top = "-500px";
+      scrollButton.current.classList.remove("hidden");
+      setTimeout(() => {
+        scrollButton.current.style.opacity = 100;
+      }, 500);
       return;
     }
   };
@@ -94,6 +108,7 @@ export default function Page() {
       <Canvas ref={scroll} onScroll={onScroll} />
       <Header ref={header} loader={loader} scroll={scroll} />
       <Footer ref={footer} loader={loader} scroll={scroll} />
+      <ScrollButton ref={scrollButton} scroll={scroll} />
       <Loader ref={loader} />
     </>
   );

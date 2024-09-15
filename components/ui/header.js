@@ -2,15 +2,22 @@
 
 import Link from "next/link";
 import Logo from "@/components/ui/logo";
-import { performScrollToTop, performRedirectContact } from "@/lib/utils";
 import { forwardRef } from "react";
 import { useRouter } from "next/navigation";
+import {
+  performScrollToTop,
+  performRedirectContact,
+  performRedirectWork,
+  performRedirectPartnership,
+} from "@/lib/utils";
 
 export default forwardRef(function Header(props, ref) {
   const { className, loader, scroll } = props;
   const router = useRouter();
   const scrollToTop = () => performScrollToTop(scroll);
   const redirectContact = () => performRedirectContact(router, loader);
+  const redirectWork = () => performRedirectWork(router, loader);
+  const redirectPartnership = () => performRedirectPartnership(router, loader);
   return (
     <div
       ref={ref}
@@ -37,7 +44,7 @@ export default forwardRef(function Header(props, ref) {
         </span>
         <span
           className="text-end transition-colors text-gray-400 font-medium hover:text-white hover:cursor-pointer ms-6"
-          onClick={redirectContact}
+          onClick={redirectPartnership}
         >
           partnership
         </span>
