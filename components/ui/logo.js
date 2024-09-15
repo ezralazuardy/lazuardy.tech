@@ -4,7 +4,7 @@ export default function Logo(props) {
   const { className } = props;
   return (
     <div
-      className={`logo font-semibold select-none hover:cursor-default ${Roboto_Mono.className} ${className}`}
+      className={`logo font-medium select-none hover:cursor-default ${Roboto_Mono.className} ${className}`}
     >
       lazuardy;
     </div>

@@ -21,9 +21,9 @@ export default forwardRef(function Header(props, ref) {
   return (
     <div
       ref={ref}
-      className={`${className} header transition-all duration-500 absolute left-0 w-full bg-black/30 backdrop-filter backdrop-blur bg-opacity-30 text-white py-8 px-14 grid grid-cols-2 gap-4 ease-in-out pointer-events-auto`}
+      className={`${className} header transition-all duration-500 absolute left-0 w-full bg-black/30 backdrop-filter backdrop-blur bg-opacity-30 text-white py-6 px-12 grid grid-cols-2 gap-4 ease-in-out pointer-events-auto`}
     >
-      <Logo className="w-full text-start text-2xl" />
+      <Logo className="w-full text-start text-xl" />
       <div className="w-full text-end justify-end text-lg font-light font-sans flex">
         <span
           className="text-end transition-colors text-white font-medium hover:text-white hover:cursor-pointer"

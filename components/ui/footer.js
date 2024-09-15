@@ -70,7 +70,7 @@ export default forwardRef(function Footer(props, ref) {
                 <div className="flex gap-1 text-gray-300 text-md font-light">
                   or
                   <Link
-                    className="transition-all text-gray-300 font-bold hover:text-white"
+                    className="transition-all text-gray-400 font-medium hover:text-white"
                     href="https://calendly.com/ezralazuardy/free-consultation"
                     target="_blank"
                   >
