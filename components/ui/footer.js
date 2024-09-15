@@ -54,17 +54,30 @@ export default forwardRef(function Footer(props, ref) {
           </div>
           <div className="w-full grid grid-cols-8 gap-12">
             <div className="w-full text-start col-span-3">
-              <div className="text-gray-300 text-md mb-10 font-light">
+              <div className="w-full text-gray-300 text-md mb-10 font-light">
                 <span>
                   Feel free to reach out if you want to collaborate with us, or
                   simply have a chat.
                 </span>
               </div>
-              <div className="text-white text-xl font-light flex gap-2 hover:gap-4 transition-all">
-                <Link href="mailto:contact@lazuardy.tech">
-                  contact@lazuardy.tech
-                </Link>
-                <ArrowRight className="w-5 h-5 mt-1.5" />
+              <div className="w-full">
+                <div className="flex gap-2 hover:gap-4 transition-all mb-2 text-white text-xl font-medium">
+                  <Link href="mailto:contact@lazuardy.tech" target="_blank">
+                    contact@lazuardy.tech
+                  </Link>
+                  <ArrowRight className="w-5 h-5 mt-1.5" />
+                </div>
+                <div className="flex gap-1 text-gray-300 text-md font-light">
+                  or
+                  <Link
+                    className="transition-all text-gray-300 font-bold hover:text-white"
+                    href="https://calendly.com/ezralazuardy/free-consultation"
+                    target="_blank"
+                  >
+                    schedule a meeting
+                  </Link>
+                  instead.
+                </div>
               </div>
             </div>
             <div className="w-full text-start col-span-1"></div>
