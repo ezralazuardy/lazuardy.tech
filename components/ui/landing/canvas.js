@@ -1,8 +1,8 @@
 "use client";
 
 import * as THREE from "three";
-import Effect from "@/components/ui/effect";
-import Text from "@/components/ui/text";
+import Effect from "@/components/ui/landing/effect";
+import Text from "@/components/ui/landing/text";
 import state from "@/lib/state";
 import { Flex, Box, useFlexSize } from "@react-three/flex";
 import { Line, useAspect } from "@react-three/drei";
@@ -263,7 +263,7 @@ export default forwardRef(function Canvas(props, ref) {
         camera={{ position: [0, 0, 10], far: 2000 }}
         onCreated={({ gl }) => gl.setClearColor("#000000")}
         gl={{
-          powerPreference: "default",
+          powerPreference: "high-performance",
           alpha: false,
           antialias: false,
           stencil: false,

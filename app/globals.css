@@ -98,3 +98,11 @@ body,
     user-select: none;
     -webkit-user-select: none;
 }
+
+.llg-2:hover ~ .llg-1 {
+    background-color: red;
+}
+
+.llg-2:hover ~ .llg-1.llg-label {
+    color: #9ca3af;
+}

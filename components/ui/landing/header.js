@@ -4,20 +4,12 @@ import Link from "next/link";
 import Logo from "@/components/ui/logo";
 import { forwardRef } from "react";
 import { useRouter } from "next/navigation";
-import {
-  performScrollToTop,
-  performRedirectContact,
-  performRedirectWork,
-  performRedirectPartnership,
-} from "@/lib/utils";
+import { performScrollToTop, performRedirectContact } from "@/lib/utils";
 
 export default forwardRef(function Header(props, ref) {
   const { className, loader, scroll } = props;
   const router = useRouter();
-  const scrollToTop = () => performScrollToTop(scroll);
-  const redirectContact = () => performRedirectContact(router, loader);
-  const redirectWork = () => performRedirectWork(router, loader);
-  const redirectPartnership = () => performRedirectPartnership(router, loader);
+
   return (
     <div
       ref={ref}
@@ -27,13 +19,13 @@ export default forwardRef(function Header(props, ref) {
       <div className="w-full text-end justify-end text-lg font-light font-sans flex">
         <span
           className="text-end transition-colors text-white font-medium hover:text-white hover:cursor-pointer"
-          onClick={scrollToTop}
+          onClick={() => performScrollToTop(scroll)}
         >
           home
         </span>
         <span
           className="text-end transition-colors text-gray-400 font-medium hover:text-white hover:cursor-pointer ms-6"
-          onClick={redirectContact}
+          onClick={() => performRedirectContact(router, loader)}
         >
           contact
         </span>
@@ -41,12 +33,6 @@ export default forwardRef(function Header(props, ref) {
           <Link href="https://blog.lazuardy.tech" target="_blank">
             articles
           </Link>
-        </span>
-        <span
-          className="text-end transition-colors text-gray-400 font-medium hover:text-white hover:cursor-pointer ms-6"
-          onClick={redirectPartnership}
-        >
-          partnership
         </span>
       </div>
     </div>

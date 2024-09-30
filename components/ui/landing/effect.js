@@ -5,7 +5,7 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader";
-import { WaterPass } from "@/components/ui/shaders/water-pass";
+import { WaterPass } from "@/components/ui/landing/shaders/water-pass";
 import state from "@/lib/state";
 
 extend({ EffectComposer, ShaderPass, RenderPass, WaterPass });

@@ -1,17 +1,17 @@
 "use client";
 
-import Header from "@/components/ui/header";
-import Canvas from "@/components/ui/canvas";
-import Footer from "@/components/ui/footer";
-import Loader from "@/components/ui/loader";
 import Maintenance from "@/components/ui/maintenance";
-import ScrollButton from "@/components/ui/scroll-button";
+import Loader from "@/components/ui/loader";
+import Header from "@/components/ui/landing/header";
+import Canvas from "@/components/ui/landing/canvas";
+import Footer from "@/components/ui/landing/footer";
+import ScrollButton from "@/components/ui/landing/scroll-button";
 import React, { useEffect, useState, useRef } from "react";
 import { isMaintenanceMode } from "@/lib/config";
 import { performHideLoader } from "@/lib/utils";
 import state from "@/lib/state";
 
-const loaderDelay = 6000; // in ms;
+const loaderDelay = 3000; // in ms;
 
 const calculateScrollProgress = (scrollTarget) => {
   const scrollHeight = scrollTarget.scrollHeight - scrollTarget.clientHeight;
@@ -48,6 +48,8 @@ export default function Page() {
       return;
     }
 
+    console.log(scrollButton.current.onClick ?? false);
+
     // get the scroll data
     const scrollProgress = calculateScrollProgress(scrollTarget);
 
@@ -78,6 +80,7 @@ export default function Page() {
       scrollButton.current.style.opacity = 0;
       setTimeout(() => {
         scrollButton.current.classList.add("hidden");
+        scrollButton.current.onClick = false;
       }, 500);
       return;
     }
@@ -85,15 +88,20 @@ export default function Page() {
     // hide the header and show the scroll button
     if (scrollProgress > 3) {
       header.current.style.top = "-500px";
-      scrollButton.current.classList.remove("hidden");
-      setTimeout(() => {
-        scrollButton.current.style.opacity = 100;
-      }, 500);
+      if ((scrollButton.current.onClick ?? false) === false) {
+        scrollButton.current.classList.remove("hidden");
+        setTimeout(() => {
+          scrollButton.current.style.opacity = 100;
+        }, 500);
+      }
       return;
     }
   };
 
-  useEffect(() => onScroll());
+  useEffect(() => {
+    // listen for scroll events
+    onScroll();
+  });
 
   if (isMaintenanceMode()) {
     return (
