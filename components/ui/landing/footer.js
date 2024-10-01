@@ -64,15 +64,14 @@ export default forwardRef(function Footer(props, ref) {
                   <ArrowRight className="w-5 h-5 mt-1.5" />
                 </div>
                 <div className="flex gap-1 text-gray-300 text-md font-light">
-                  or
+                  Something urgent? Let&apos;s
                   <Link
-                    className="transition-all text-gray-400 font-medium hover:text-white"
+                    className="transition-all underline hover:text-white"
                     href="https://calendly.com/ezralazuardy/free-consultation"
                     target="_blank"
                   >
-                    schedule a meeting
+                    schedule a meeting.
                   </Link>
-                  instead.
                 </div>
               </div>
             </div>

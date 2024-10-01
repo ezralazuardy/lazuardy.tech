@@ -31,7 +31,7 @@ export default forwardRef(function Header(props, ref) {
         </span>
         <span className="text-end transition-colors text-gray-400 font-medium hover:text-white hover:cursor-pointer ms-6">
           <Link href="https://blog.lazuardy.tech" target="_blank">
-            articles
+            article
           </Link>
         </span>
       </div>

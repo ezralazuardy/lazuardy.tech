@@ -11,7 +11,7 @@ import { isMaintenanceMode } from "@/lib/config";
 import { performHideLoader } from "@/lib/utils";
 import state from "@/lib/state";
 
-const loaderDelay = 3000; // in ms;
+const loaderDelay = 2000; // in ms;
 
 const calculateScrollProgress = (scrollTarget) => {
   const scrollHeight = scrollTarget.scrollHeight - scrollTarget.clientHeight;
